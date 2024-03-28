@@ -73,7 +73,7 @@
     <li>
       <h3>Prerequisites</h3>
       <ul>
-        <li>A java library that exists in maven.</li>
+        <li>A java library that exists in maven central repository.</li>
         <li>A valid OpenAI API Key.</li>
         <li>Java 11 & Python 3.10 & Maven 9.</li>
       </ul>
@@ -83,7 +83,7 @@
       <h3>Usage</h3>
       <ul>
         <li>Create a file named <u style="font-weight: bold">llm-seed-generator.cfg</u> in the folder <u style="font-weight: bold">llm-seed-generator</u>, refer to the file <u style="font-weight: bold">llm-seed-generator.example.cfg</u> for details, and replace the <u style="font-weight: bold">OPENAI_KEY</u> in it with your valid OpenAI API Key.</li><br>
-        <li>Add the java maven library you want to test to the dependencies in the <u style="font-weight: bold">pom.xml</u> file in the <u style="font-weight: bold">llm-JQF/fuzz</u> folder.</li><br>
+        <li>Add the java library you want to test to the dependencies in the <u style="font-weight: bold">pom.xml</u> file in the folder <u style="font-weight: bold">llm-JQF/fuzz</u>.</li><br>
         <li>Run <u style="font-weight: bold">mvn install -DskipTests</u> in the folder <u style="font-weight: bold">llm-JQF</u>.</li><br>
         <li>Run <u style="font-weight: bold">bin/jqf-llm -i -o {library_name} {api_name}</u> in the folder <u style="font-weight: bold">llm-JQF</u>.</li><br>
         <li><u style="font-weight: bold">library_name</u>'s format: <u style="font-weight: bold">group_id:artifact_id:version</u><br><u style="font-weight: bold">api_name</u>'s format: <u style="font-weight: bold">class_name.method_name(param_type_names)</u><br><u style="font-style: italic"> EX.</u> bin/jqf-llm -i -o "org.apache.commons:commons-lang3:3.14.0" "org.apache.commons.lang3.StringUtils.indexOfDifference(CharSequence,CharSequence)"</li>
