@@ -1,0 +1,264 @@
+<head>
+  <title>
+    Floating Menu Style
+  </title>
+  <style>
+    .floating-menu {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      background-color: transparent;
+      border: 0px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+      font-size: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .floating-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .floating-menu ul li {
+      margin-bottom: 15px;
+    }
+
+    .floating-menu ul li a {
+      text-decoration: none;
+      color: #222;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .floating-menu ul li a:hover {
+      color: #00a8e1;
+    }
+
+    .content {
+      margin-right: 200px;
+    }
+
+  </style>
+</head>
+
+
+<div class="floating-menu">
+  <ul>
+    <li><a href="#operation-section">Operation Guidance</a></li>
+    <li><a href="#coverage-overall-section">Code Coverage Overall</a></li>
+    <li><a href="#efficiency-section">Efficiency</a></li>
+    <li><a href="#exceptions-section">Unexpected Behaviors</a></li>
+    <li><a href="#ablation-section">Ablation Study</a></li>
+  </ul>
+</div>
+
+
+<div class="user-details" id="operation-section">
+  <h1 style="font-weight: bold;" >Operation Guidance</h1>
+  <style>
+    ol {
+      padding-left: 20px; /* 调整列表的左边距 */
+    }
+    li {
+      text-align: left; /* 文本左对齐 */
+    }
+  </style>
+
+  <ol>
+    <li>
+      <h3>Prerequisites</h3>
+      <ul>
+        <li>A java library that exists in maven.</li>
+        <li>A valid OpenAI API Key.</li>
+        <li>Java 11 & Python 3.10 & Maven 9.</li>
+      </ul>
+    </li>
+
+    <li>
+      <h3>Usage</h3>
+      <ul>
+        <li>Create a file named <u style="font-weight: bold">llm-seed-generator.cfg</u> in the folder <u style="font-weight: bold">llm-seed-generator</u>, refer to the file <u style="font-weight: bold">llm-seed-generator.example.cfg</u> for details, and replace the <u style="font-weight: bold">OPENAI_KEY</u> in it with your valid OpenAI API Key.</li><br>
+        <li>Add the java maven library you want to test to the dependencies in the <u style="font-weight: bold">pom.xml</u> file in the <u style="font-weight: bold">llm-JQF/fuzz</u> folder.</li><br>
+        <li>Run <u style="font-weight: bold">mvn install -DskipTests</u> in the folder <u style="font-weight: bold">llm-JQF</u>.</li><br>
+        <li>Run <u style="font-weight: bold">bin/jqf-llm -i -o {library_name} {api_name}</u> in the folder <u style="font-weight: bold">llm-JQF</u>.</li><br>
+        <li><u style="font-weight: bold">library_name</u>'s format: <u style="font-weight: bold">group_id:artifact_id:version</u><br><u style="font-weight: bold">api_name</u>'s format: <u style="font-weight: bold">class_name.method_name(param_type_names)</u><br><u style="font-style: italic"> EX.</u> bin/jqf-llm -i -o "org.apache.commons:commons-lang3:3.14.0" "org.apache.commons.lang3.StringUtils.indexOfDifference(CharSequence,CharSequence)"</li>
+      </ul>
+    </li>
+  </ol>
+
+
+  <!--  <img src="/assets/image/operation.gif" alt="operation" style="width: 1000px; height: auto;">-->
+
+  <br>
+</div>
+
+<div class="user-details"  id="coverage-overall-section">
+  <h1 style="font-weight: bold;" >Code Coverage Overall</h1>
+  <p style="text-align: left;">If you want to get the coverage information for each API, you can download the <a style="color: blue;" href="https://github.com/LLMISP/LLMISP/raw/master/Evaluation/Code%20Coverage.xlsx">full coverage table</a> to review it.</p>
+</div>
+
+<head>
+  <title>Data Display</title>
+  <style>
+    .table-container {
+      max-height: 800px;
+      overflow-y: auto;
+      border: 1px solid black;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      text-align: center;
+      padding: 8px;
+    }
+
+    td {
+      word-wrap: break-word;
+    }
+
+    thead {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+
+<body>
+<div class="table-container">
+
+<table id="dataTable">
+  <thead>
+  <tr>
+    <th style="width: 100px;" >Library Name</th>
+    <th style="width: 80px;">LISP</th>
+    <th style="width: 80px;">EvoSuite 100s</th>
+    <th style="width: 80px;">EvoSuite 150s</th>
+    <th style="width: 80px;">EvoSuite 200s</th>
+    <th style="width: 80px;">LLM-baseline</th>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+<script src="assets/js/coverageDatas.js"></script>
+<script src="assets/js/coverageScript.js"></script>
+</body>
+
+
+<div class="user-details"  id="efficiency-section">
+  <h1 style="font-weight: bold;" >Efficiency</h1>
+  <p style="text-align: left;">If you want to get efficiency for each library, you can download the <a style="color: blue;" href="https://github.com/LLMISP/LLMISP/raw/master/Evaluation/Effiency.xlsx">full efficiency table</a> to review it.</p>
+</div>
+
+<body>
+<div class="table-container">
+
+  <table id="efficiencyDatas">
+    <thead>
+    <tr>
+      <th style="width: 100px;" ></th>
+      <th style="width: 150px;">Covered Edge Num</th>
+      <th style="width: 150px;">Valid Inputs Num</th>
+      <th style="width: 80px;">Time (s)</th>
+      <th style="width: 115px;">Edge / Input</th>
+      <th style="width: 115px;">Time / Input</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+<script src="assets/js/efficiencyDatas.js"></script>
+<script src="assets/js/efficiencyScript.js"></script>
+</body>
+
+<div class="user-details"  id="exceptions-section">
+  <h1 style="font-weight: bold;" >Unexpected Behaviors</h1>
+  <p style="text-align: left;">If you want to get Unexpected Behaviors in each library, you can download the <a style="color: blue;" href="https://github.com/LLMISP/LLMISP/raw/master/Evaluation/Unexpected%20behaviors.xlsx">full UB table</a> to review it.</p>
+</div>
+
+<body>
+<div class="table-container">
+
+  <table id="exceptionsDatas">
+    <thead>
+    <tr>
+      <th style="width: 210px;">Exception Type</th>
+      <th style="width: 40px;">LISP</th>
+      <th style="width: 60px;">EvoSuite 200s</th>
+      <th style="width: 50px;">LLM-baseline</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+<script src="assets/js/exceptionsDatas.js"></script>
+<script src="assets/js/exceptionsScript.js"></script>
+</body>
+
+
+<div class="user-details"  id="ablation-section">
+  <h1 style="font-weight: bold;" >Ablation Study - Coverage</h1>
+</div>
+
+<body>
+<div class="table-container">
+
+  <table id="ablationDatas">
+    <thead>
+    <tr>
+      <th style="width: 120px;">Library Name</th>
+      <th style="width: 80px;">LISP</th>
+      <th style="width: 80px;">Ablation 1</th>
+      <th style="width: 80px;">Ablation 2</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+<script src="assets/js/ablationDatas.js"></script>
+<script src="assets/js/ablationScript.js"></script>
+</body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const menuLinks = document.querySelectorAll(".floating-menu a");
+
+    menuLinks.forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        const targetId = this.getAttribute("href").substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+          window.scrollTo({
+            top: targetSection.offsetTop - 50,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+  });
+</script>
+

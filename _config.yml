@@ -1,0 +1,14 @@
+# Site settings
+title: LLM Based Input Space Partitioning Testing for Library APIs
+description: This page contains the experimental results in the ICSE 2025 submission titled "LLM Based Input Space Partitioning Testing for Library APIs".
+# baseurl: "" # the subpath of your site, e.g. /blog
+
+# User settings
+username: LLM Based Input Space Partitioning Testing for Library APIs
+user_description: This page contains the experimental results in the ICSE 2025 submission titled "LLM Based Input Space Partitioning Testing for Library APIs".
+user_title: This page contains the experimental results in the ICSE 2025 submission titled "LLM Based Input Space Partitioning Testing for Library APIs".
+
+github_username:  LLM4IG
+
+exclude: ['package.json', 'src', 'node_modules', 'vendor']
+
